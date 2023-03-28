@@ -123,15 +123,13 @@
         </div>
 		<input type="submit" value="Verzenden" onclick="submitForm();">
 
-		<!-- <button type="submit2">Upload Data</button> -->
-
-        <div id="popup" class="popup">
+        <!-- <div id="popup" class="popup">
             <div class="popup-content">
                 <h2>Bedankt voor uw bericht!</h2>
                 <p>We hebben uw gegevens ontvangen en zullen zo snel mogelijk contact met u opnemen.</p>
                 <button onclick = "window.location.href='https://cmdrfop.github.io/Qr/FinishPage.html';">Sluiten</button>
             </div>
-        </div>
+        </div> -->
         <div id="popup2" class="popup">
             <div class="popup-content">
                 <h2>Gegevens Ontbreken</h2>
@@ -201,8 +199,9 @@
 				return;
 			} 
 			if (allFieldsFilled && talentpoolCheckbox.value == 1){
-				var popup = document.getElementById("popup");
-				popup.style.display = "flex";
+				window.location.href = 'https://cmdrfop.github.io/Qr/FinishPage.html';
+				//var popup = document.getElementById("popup");
+				//popup.style.display = "flex";
 			}
 	
 
