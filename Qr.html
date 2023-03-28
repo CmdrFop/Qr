@@ -30,7 +30,7 @@
 			margin-bottom: 10px;
 			color: #555;
 		}
-		input[type="text"], input[type="email"], input[type="tel"], input[type="date"] {
+		input[type="text"], input[type="email"], input[type="tel"], input[type="month"] {
 			width: 100%;
 			padding: 10px;
 			border: 1px solid #ddd;
@@ -82,21 +82,25 @@
 </head>
 <body>
 	<h1> <span style="color: rgb(63, 243, 46)">W</span>orking<span style="color: rgb(63, 243, 46)"> T</span>alent</h1>
-	<form id="upload-form" onsubmit="event.preventDefault(); asyncCall();"> 
-		<label for="naam">Naam:</label>
+	<form id="upload-form" onsubmit="event.preventDefault();"> 
+
+		<label for="naam">Voornaam:</label>
 		<input type="text" id="naam" name="naam" required>
+
+		<label for="achternaam">Achternaam:</label>
+		<input type="text" id="achternaam" name="achternaam" required>		
 
 		<label for="email">E-mailadres:</label>
 		<input type="email" id="email" name="email" required>
 
 		<label for="telefoon">06-nummer:</label>
-		<input type="tel" id="telefoon" name="telefoon" required>
+		<input type="tel" id="telefoon" name="telefoon" required maxlength="10" >
 
 		<label for="studie">Studienaam:</label>
 		<input type="text" id="studie" name="studie" required>
 
 		<label for="afstudeerdatum">Verwachte afstudeerdatum:</label>
-		<input type="date" placeholder="dd-mm-yyyy" id="afstudeerdatum" name="afstudeerdatum" required>
+		<input type="month" placeholder="Maand Jaar" id="afstudeerdatum" name="afstudeerdatum" required>
 
 		<label for="woonplaats">Woonplaats:</label>
 		<input type="text" id="woonplaats" name="woonplaats" required>
@@ -106,11 +110,11 @@
 
 		<div>
 
-			<input type="checkbox" id="talentpool" name="talentpool" value=1 >
+			<input type="checkbox" id="talentpool" name="talentpool" value=0 required>
 			<label for="talentpool">Akkoord opslaan Talentpool - max 12 Maanden</label>
             
 
-            <input type="checkbox" id="nieuwsbrief" name="nieuwsbrief" value=1>
+            <input type="checkbox" id="nieuwsbrief" name="nieuwsbrief" value=0 >
             <label for="nieuwsbrief">Akkoord opslaan Nieuwsbrief - periodieke nieuwsbrief</label>
             
             
@@ -140,9 +144,44 @@
 	</form>
 
 	<script>
-		
+
+		const talentpoolCheckbox = document.getElementById("talentpool");
+    	const nieuwsbriefCheckbox = document.getElementById("nieuwsbrief");
+
+		talentpoolCheckbox.addEventListener("change", function() {
+			talentpoolCheckbox.value = this.checked ? "1" : "0";
+		});
+
+		nieuwsbriefCheckbox.addEventListener("change", function() {
+			nieuwsbriefCheckbox.value = this.checked ? "1" : "0";
+		});
 
 		function submitForm() {	
+
+			const column1Value = document.getElementById("naam").value;
+			const column2Value = document.getElementById("email").value;
+			const column3Value = document.getElementById("telefoon").value;
+			const column4Value = document.getElementById("studie").value;
+			const column5Value = document.getElementById("afstudeerdatum").value;
+			const column6Value = document.getElementById("woonplaats").value;
+			const column7Value = document.getElementById("contactpersoon").value;
+			const column8Value = document.getElementById("talentpool").value;
+			const column9Value = document.getElementById("nieuwsbrief").value;
+	
+	
+			const dataToInsert = {
+				"column1": column1Value,
+				"column2": column2Value,
+				"column3": column3Value,
+				"column4": column4Value,
+				"column5": column5Value,
+				"column6": column6Value,
+				"column7": column7Value,
+				"column8": column8Value,
+				"column9": column9Value,
+			};
+			console.log(dataToInsert);
+
 			var requiredFields = document.querySelectorAll('[required]');
 	
 			// Controleer of alle verplichte velden zijn ingevuld
@@ -154,16 +193,19 @@
 			});
 	
 			// Als niet alle velden zijn ingevuld, toon dan een popup
-			if (!allFieldsFilled) {
+			const talentpoolCheckbox = document.getElementById("talentpool");
+
+			if (!allFieldsFilled || talentpoolCheckbox.value == 0) {
 				var popup = document.getElementById("popup2");
 				popup.style.display = "flex";
 				return;
 			} 
-			if (allFieldsFilled){
+			if (allFieldsFilled && talentpoolCheckbox.value == 1){
 				var popup = document.getElementById("popup");
 				popup.style.display = "flex";
 			}
 	
+
 	
 		}
 		
