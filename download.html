@@ -81,15 +81,15 @@
     <form id="download-form">
         <div>
             <div>
-                <label for="start-date-1">Start datum afstudeerdatum:</label>
+                <label for="start-date-1">Start datum formulier ingevuld:</label>
                 <input type="date" id="start-date-1" name="start-date-1">
             </div>
             <div>
-                <label for="end-date-1">Eind datum afstudeerdatum:</label>
+                <label for="end-date-1">Eind datum formulier ingevuld:</label>
                 <input type="date" id="end-date-1" name="end-date-1">
             </div>
         </div>
-        <div>
+        <!-- <div>
             <div>
             <label for="start-date-2">Start datum formulier ingevuld:</label>
             <input type="date" id="start-date-2" name="start-date-2">
@@ -98,7 +98,7 @@
             <label for="end-date-2">Eind date formulier ingevuld:</label>
             <input type="date" id="end-date-2" name="end-date-2">
             </div>
-        </div>  
+        </div>   -->
         <button type="submit">Download Excel</button>
     </form>
 
@@ -107,8 +107,8 @@
             event.preventDefault();
             const startDate1 = $("#start-date-1").val() || null;
             const endDate1 = $("#end-date-1").val() || null;
-            const startDate2 = $("#start-date-2").val() || null;
-            const endDate2 = $("#end-date-2").val() || null;
+            // const startDate2 = $("#start-date-2").val() || null;
+            // const endDate2 = $("#end-date-2").val() || null;
 
             $.ajax({
                 url: "https://wtform.azurewebsites.net/api/FormDownloadf?code=jy9AvPLuhzew7nqbq0hx7hG5PJdFW8JPmQcG_kRrbt-NAzFulBxMMg==",
@@ -116,8 +116,8 @@
                 data: JSON.stringify({
                     "start-date-1": startDate1,
                     "end-date-1": endDate1,
-                    "start-date-2": startDate2,
-                    "end-date-2": endDate2
+                    // "start-date-2": startDate2,
+                    // "end-date-2": endDate2
                 }),
                 contentType: "application/json",
                 success: function(response) {
