@@ -156,7 +156,7 @@
 			<br><br>
 
 		</div>
-		<input type="submit" value="Verzenden" onclick="submitForm();">
+		<input type="submit" value="Verzenden" onclick="">
 
 		<!-- <div id="popup" class="popup">
             <div class="popup-content">
@@ -191,7 +191,6 @@
 
 		function submitForm() {
 
-
 			var requiredFields = document.querySelectorAll('[required]');
 
 			// Controleer of alle verplichte velden zijn ingevuld
@@ -211,7 +210,7 @@
 				return;
 			}
 			if (allFieldsFilled && talentpoolCheckbox.value == 1) {
-				window.location.href = 'https://cmdrfop.github.io/Qr/FinishPage.html';
+				// window.location.href = 'https://cmdrfop.github.io/Qr/FinishPage.html';
 				//var popup = document.getElementById("popup");
 				//popup.style.display = "flex";
 			}
@@ -224,15 +223,14 @@
 		async function asyncCall() {
 			submitForm();
 			const column1Value = document.getElementById("naam").value;
-			const column2Value = document.getElementById("achternaam").value;
-			const column3Value = document.getElementById("email").value;
-			const column4Value = document.getElementById("telefoon").value;
-			const column5Value = document.getElementById("studie").value;
-			const column6Value = document.getElementById("afstudeerdatum").value;
-			const column7Value = document.getElementById("woonplaats").value;
-			const column8Value = document.getElementById("contactpersoon").value;
-			const column9Value = document.getElementById("talentpool").value;
-			const column10Value = document.getElementById("nieuwsbrief").value;
+			const column2Value = document.getElementById("email").value;
+			const column3Value = document.getElementById("telefoon").value;
+			const column4Value = document.getElementById("studie").value;
+			const column5Value = document.getElementById("afstudeerdatum").value;
+			const column6Value = document.getElementById("woonplaats").value;
+			const column7Value = document.getElementById("contactpersoon").value;
+			const column8Value = document.getElementById("talentpool").value;
+			const column9Value = document.getElementById("nieuwsbrief").value;
 
 
 			const dataToInsert = {
@@ -245,10 +243,11 @@
 				"column7": column7Value,
 				"column8": column8Value,
 				"column9": column9Value,
-				"column10":column10Value,
 			};
 			console.log(dataToInsert);
 			console.log('Fetching');
+			const form = document.getElementById("upload-form");
+        	form.reset();
 			try {
 
 				const response = await fetch("https://wtform.azurewebsites.net/api/FormData?code=t4biSKxAnkb5-__vqSxVGQchu_lntq5kh42EXqSpJmWtAzFuHxwgGQ==", {
@@ -271,7 +270,7 @@
 				console.error("Error: ", error);
 				alert("An error occurred while uploading data. Please try again.");
 			}
-
+		
 		}
 
 	</script>
