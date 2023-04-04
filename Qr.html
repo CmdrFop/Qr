@@ -145,11 +145,11 @@
 
 		<div>
 
-			<input type="checkbox" id="talentpool" name="talentpool" value=0 required>
+			<input type="checkbox" id="talentpool" name="talentpool" required>
 			<label for="talentpool">Akkoord opslaan Talentpool - max 12 Maanden</label>
 
 
-			<input type="checkbox" id="nieuwsbrief" name="nieuwsbrief" value=0>
+			<input type="checkbox" id="nieuwsbrief" name="nieuwsbrief">
 			<label for="nieuwsbrief">Akkoord opslaan Nieuwsbrief - periodieke nieuwsbrief</label>
 
 
@@ -158,13 +158,7 @@
 		</div>
 		<input type="submit" value="Verzenden" onclick="">
 
-		<!-- <div id="popup" class="popup">
-            <div class="popup-content">
-                <h2>Bedankt voor uw bericht!</h2>
-                <p>We hebben uw gegevens ontvangen en zullen zo snel mogelijk contact met u opnemen.</p>
-                <button onclick = "window.location.href='https://cmdrfop.github.io/Qr/FinishPage.html';">Sluiten</button>
-            </div>
-        </div> -->
+		
 		<div id="popup2" class="popup">
 			<div class="popup-content">
 				<h2>Gegevens Ontbreken</h2>
@@ -178,16 +172,6 @@
 
 	<script>
 
-		const talentpoolCheckbox = document.getElementById("talentpool");
-		const nieuwsbriefCheckbox = document.getElementById("nieuwsbrief");
-
-		talentpoolCheckbox.addEventListener("change", function () {
-			talentpoolCheckbox.value = this.checked ? "1" : "0";
-		});
-
-		nieuwsbriefCheckbox.addEventListener("change", function () {
-			nieuwsbriefCheckbox.value = this.checked ? "1" : "0";
-		});
 
 		function submitForm() {
 
@@ -230,8 +214,8 @@
 			const column6Value = document.getElementById("afstudeerdatum").value;
 			const column7Value = document.getElementById("woonplaats").value;
 			const column8Value = document.getElementById("contactpersoon").value;
-			const column9Value = document.getElementById("talentpool").value;
-			const column10Value = document.getElementById("nieuwsbrief").value;
+			const column9Value = document.getElementById("talentpool").checked;
+			const column10Value = document.getElementById("nieuwsbrief").checked;
 
 
 			const dataToInsert = {
