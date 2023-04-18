@@ -104,7 +104,7 @@
 			display: block;
 			margin: 0 auto;
 			padding: 30px;
-			width: 35%; /* Set the width to 10% of the parent element */
+			width: 20%; /* Set the width to 10% of the parent element */
   			height: auto; /* Automatically adjust the height to maintain aspect ratio */
 		}	
 
@@ -115,7 +115,6 @@
 </head>
 
 <body>
-	<!-- <h1> <span style="color: rgb(63, 243, 46)">W</span>orking<span style="color: rgb(63, 243, 46)"> T</span>alent</h1> -->
 	<img src="https://cmdrfop.github.io/Qr/WTWhite.png" id="logo" alt="Logo">
 	<form id="upload-form" onsubmit="event.preventDefault(); asyncCall();">
 
@@ -135,7 +134,7 @@
 		<input type="text" id="studie" name="studie" required>
 
 		<label for="afstudeerdatum">Verwachte afstudeerdatum:</label>
-		<input type="month" placeholder="Maand Jaar" id="afstudeerdatum" name="afstudeerdatum" required>
+		<input type="month"  id="afstudeerdatum" name="afstudeerdatum" required>
 
 		<label for="woonplaats">Woonplaats:</label>
 		<input type="text" id="woonplaats" name="woonplaats" required>
@@ -146,14 +145,14 @@
 		<div>
 
 			<input type="checkbox" id="talentpool" name="talentpool" required>
-			<label for="talentpool">Akkoord opslaan Talentpool - max 12 Maanden</label>
+			<label for="talentpool">Akkoord opslaan Talentpool - max 12 maanden</label>
 
 
 			<input type="checkbox" id="nieuwsbrief" name="nieuwsbrief">
-			<label for="nieuwsbrief">Akkoord opslaan Nieuwsbrief - periodieke Nieuwsbrief</label>
+			<label for="nieuwsbrief">Akkoord opslaan periodieke nieuwsbrief</label>
 
 
-			<br><br>
+			<br>
 
 		</div>
 		<input type="submit" value="Verzenden" onclick="">
@@ -169,7 +168,8 @@
 		</div>
 
 	</form>
-
+	<br>
+	<br>
 	<script>
 
 
